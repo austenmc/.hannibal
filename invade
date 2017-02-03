@@ -1,0 +1,13 @@
+#/bin/bash -e
+
+echo -n "Creating ~/.vimc ... "
+ln -s ~/.patton/.vimrc ~/.vimrc
+echo "done"
+
+echo -n "Creating ~/.config ... "
+mkdir -p ~/.config
+echo "done"
+
+echo -n "Creating ~/.config/karabiner ... "
+ln -s ~/.patton/karabiner ~/.config/
+echo "done"
