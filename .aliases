@@ -1,0 +1,30 @@
+alias dev='ssh `whoami`@$SANDBOX'
+
+alias ad='arc diff HEAD^'
+
+alias b='git checkout -t origin/master -b'
+alias gp='git pull-request'
+alias gb='git branch'
+alias gl='git log'
+alias gc='git commit'
+alias gd='git diff'
+alias gs='git status'
+alias gr='git rebase'
+alias gri='git rebase -i'
+alias gca='git commit -a'
+alias gcaa='git commit -a --amend'
+alias grc='git rebase --continue'
+
+alias pull='git pull --rebase'
+alias push='git push origin HEAD:master'
+alias pushb='git push origin HEAD:`git rev-parse --abbrev-ref HEAD`'
+alias pushbf='git push -ff origin HEAD:`git rev-parse --abbrev-ref HEAD`'
+
+alias hs='hg status'
+alias hd='hg diff'
+alias hhc='hg histedit --continue'
+alias htheirs='hg resolve -t internal:other --all'
+
+alias herokudo='git push origin HEAD:master && git push heroku master'
+
+alias lotgd-small='ssh root@162.243.59.83 -i ~/.ssh/id_rsa_lotgd-small'

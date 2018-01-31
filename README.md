@@ -1,2 +1,2 @@
 # .patton
-My personal machine setups.
+My dotfiles.
