@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/austenmc/Dropbox (Personal)'
+let g:netrw_dirhist_2='/Users/austenmc/Dropbox (Personal)/Bible Studies'
+let g:netrw_dirhist_3='/Users/austenmc'
+let g:netrw_dirhist_4='/Users'
+let g:netrw_dirhist_5='/Users/austenmc/Dropbox (Personal)'

@@ -1,4 +1,20 @@
 set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-vinegar'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'wincent/command-t'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Disable modelines just in case I encounter security issues with such files.
 set modelines=0
@@ -6,14 +22,24 @@ set modelines=0
 " Remap the leader.
 let mapleader = ","
 
+" Easy access to vimrc
+nmap <leader>ev :tabedit ~/.vimrc<cr>
+
+" Edit my journal
+nmap <leader>ej :tabedit ~/Dropbox (Personal)/journal.txt
+
+" Change to lotgd directory
+nmap <leader>cl :cd ~/lotgd
+
+" For simplicity of accessing :
+nnoremap ; :
+
 " Tabs
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 set expandtab
-filetype indent plugin on
 set autoindent
-autocmd BufNewFile,BufRead /Users/austenmc/lotgd/* set tabstop=4 shiftwidth=4 softtabstop=4
 
 " Searching
 set ignorecase
@@ -23,9 +49,6 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
-
-" For simplicity of accessing :
-nnoremap ; :
 
 " Losing focus on the window should save
 au FocusLost * :wa
@@ -40,11 +63,11 @@ nnoremap <C-l> <C-w>l
 " NERDTree
 " Be able to close the window if only NERDTree is open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<cr>
 
 " Features
-set undofile
-set wildmenu
+" set undofile
+" et wildmenu
 
 " CommandT
 let g:CommandTFileScanner='watchman'
@@ -62,16 +85,11 @@ syntax enable
 set background=dark
 colorscheme onedark
 let g:airline_theme = 'onedark'
-:set guifont=CamingoCode:h15
+set guifont=IBMPlexMono:h16
+set guioptions=                                       " Remove gui scrollbars.
 
-" Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
 
 " Folding
 set foldmethod=indent   
@@ -79,4 +97,10 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
-execute pathogen#infect()
+" Special handling for text files.
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
+autocmd FileType markdown nnoremap <buffer> j gj
+autocmd FileType markdown nnoremap <buffer> k gk
+autocmd FileType markdown nnoremap <buffer> $ g$
+autocmd FileType markdown set nonumber
