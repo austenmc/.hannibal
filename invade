@@ -1,17 +1,21 @@
 #/bin/bash -e
 
-echo -n "Creating ~/.vimc ... "
-ln -s ~/.patton/.vimrc ~/.vimrc
+echo -n "Creating ~/.vimrc ... "
+ln -s ~/.hannibal/.vimrc ~/.vimrc
+echo "done"
+
+echo -n "Creating ~/.vim ... "
+ln -s ~/.hannibal/.vim ~/.vim
 echo "done"
 
 echo -n "Creating ~/.aliases ... "
-ln -s ~/.patton/.aliases ~/.aliases
+ln -s ~/.hannibal/.aliases ~/.aliases
 echo "done"
 
-eho -n "Linking .bashrc ... "
-echo "source ~/.hannibal/.bashrc" >> ~/.bashrc
+echo -n "Linking .zprofile ... "
+echo "source ~/.hannibal/.zprofile" >> ~/.zprofile
 echo "done"
 
-eho -n "Linking .bash_profile ... "
-echo "source ~/.hannibal/.bashrc" >> ~/.bashrc
+echo -n "Linking .zshrc ... "
+echo "source ~/.hannibal/.zshrc" >> ~/.zshrc
 echo "done"
