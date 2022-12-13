@@ -1,0 +1,10 @@
+format = "$all$hostname$character"
+
+[hostname]
+ssh_only=false
+style="bold dimmed white"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = "bold dimmed white"
