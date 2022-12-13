@@ -92,6 +92,8 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+set nowrap
+
 " Special handling for text files.
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
