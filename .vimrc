@@ -8,7 +8,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'wincent/command-t'
+Plugin 'vim-airline/vim-airline'
+Plugin 'kien/ctrlp.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 
