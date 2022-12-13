@@ -1,7 +1,8 @@
-format = "$all$hostname$character"
+format = "$all$username$hostname$character"
 
 [hostname]
 ssh_only=false
+ssh_symbol=""
 style="bold dimmed white"
 format="[$ssh_symbol$hostname]($style) "
 
@@ -9,3 +10,6 @@ format="[$ssh_symbol$hostname]($style) "
 truncation_length = 100
 truncate_to_repo = false
 style = "bold dimmed white"
+
+[username]
+format="[$user]($style)@"
