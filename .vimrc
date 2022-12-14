@@ -6,10 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'tpope/vim-vinegar'
-Plugin 'scrooloose/nerdtree.git'
+Plugin 'tpope/vim-vinegar'
+Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 
@@ -29,6 +31,9 @@ nmap <leader>ev :tabedit ~/.vimrc<cr>
 " For simplicity of accessing :
 nnoremap ; :
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Tabs
 set softtabstop=2
 set tabstop=2
@@ -39,7 +44,6 @@ set autoindent
 " Searching
 set ignorecase
 set smartcase
-set gdefault
 set incsearch
 set showmatch
 set hlsearch
@@ -59,6 +63,7 @@ nnoremap <C-l> <C-w>l
 " Be able to close the window if only NERDTree is open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<cr>
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " Features
 " set undofile
