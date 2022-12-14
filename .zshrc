@@ -6,6 +6,7 @@ export HISTTIMEFORMAT="[%F %T] "
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
 
+source ~/.hannibal/.aliases
 source ~/.aliases
 
 # Change terminal navigation style to vim from emacs.

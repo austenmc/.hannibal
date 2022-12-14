@@ -13,7 +13,7 @@ ln -s ~/.hannibal/.tmux.conf ~/.tmux.conf
 echo "done"
 
 echo -n "Creating ~/.aliases ... "
-ln -s ~/.hannibal/.aliases ~/.aliases
+touch ~/.aliases
 echo "done"
 
 echo -n "Linking .zprofile ... "
