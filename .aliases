@@ -24,3 +24,5 @@ alias htheirs='hg resolve -t internal:other --all'
 alias herokudo='git push origin HEAD:main && git push heroku master'
 
 alias h='pushd ~'
+
+alias ta='tmux attach'
