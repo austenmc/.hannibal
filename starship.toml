@@ -13,3 +13,12 @@ style = "bold dimmed white"
 
 [username]
 format="[$user]($style)@"
+
+[ruby]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[php]
+disabled = true
