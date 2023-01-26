@@ -106,3 +106,10 @@ autocmd FileType markdown nnoremap <buffer> j gj
 autocmd FileType markdown nnoremap <buffer> k gk
 autocmd FileType markdown nnoremap <buffer> $ g$
 autocmd FileType markdown set nonumber
+
+" opens search results in a window w/ links and highlight the matches
+command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{json,pyc} . -e <args>' | copen | execute 'silent /<args>'
+" shift-control-* Greps for the word under the cursor
+nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
+
+nmap <leader>^ :vnew \| 0r !

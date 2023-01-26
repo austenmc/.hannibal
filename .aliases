@@ -25,4 +25,4 @@ alias herokudo='git push origin HEAD:main && git push heroku master'
 
 alias h='pushd ~'
 
-alias ta='tmux attach'
+alias ta='tmux -CC attach'
