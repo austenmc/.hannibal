@@ -83,7 +83,7 @@ set laststatus=2
 set number
 syntax enable
 set background=dark
-colorscheme onedark
+" colorscheme onedark
 let g:airline_theme = 'onedark'
 set guifont=IBMPlexMono:h18
 set guioptions=                                    " Remove gui scrollbars.
