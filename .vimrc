@@ -49,9 +49,6 @@ set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
 
-" Losing focus on the window should save
-au FocusLost * :wa
-
 " Windows
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
@@ -83,7 +80,7 @@ set laststatus=2
 set number
 syntax enable
 set background=dark
-" colorscheme onedark
+colorscheme onedark
 let g:airline_theme = 'onedark'
 set guifont=IBMPlexMono:h18
 set guioptions=                                    " Remove gui scrollbars.
