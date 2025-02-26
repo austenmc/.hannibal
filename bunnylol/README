@@ -1,0 +1,6 @@
+```
+npm install
+mkdir -p ~/Library/LaunchAgents
+mv ./com.austenmc.bunnylol.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.austenmc.bunnylol.plist
+```
