@@ -97,12 +97,12 @@ set foldlevel=2
 set nowrap
 
 " Special handling for text files.
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
-autocmd FileType markdown nnoremap <buffer> j gj
-autocmd FileType markdown nnoremap <buffer> k gk
-autocmd FileType markdown nnoremap <buffer> $ g$
-autocmd FileType markdown set nonumber
+"autocmd BufNewFile,BufRead *.md set filetype=markdown
+"autocmd BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
+"autocmd FileType markdown nnoremap <buffer> j gj
+"autocmd FileType markdown nnoremap <buffer> k gk
+"autocmd FileType markdown nnoremap <buffer> $ g$
+"autocmd FileType markdown set nonumber
 
 " opens search results in a window w/ links and highlight the matches
 command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{json,pyc} . -e <args>' | copen | execute 'silent /<args>'
