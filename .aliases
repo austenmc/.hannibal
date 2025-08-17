@@ -19,3 +19,5 @@ alias pushbf='git push -ff origin HEAD:`git rev-parse --abbrev-ref HEAD`'
 alias h='pushd ~'
 
 alias ta='tmux -CC attach'
+
+alias urldecode='python -c "import sys, urllib.parse; print(urllib.parse.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read().strip()))"'
