@@ -27,23 +27,23 @@ function parseCommand(searchQuery) {
    
     case 'p':
     case 'o':
-      return `https://integratingreflexes.com/wp-admin/post.php?post=${query}&action=edit`;
+      return `https://www.integratingreflexes.com/wp-admin/post.php?post=${query}&action=edit`;
 
     case 'hl':
       return `https://app.champagne-room.io/v2/location/fPDoZjFPs8oBCPf3hI3h/contacts/detail/${query}`;
 
     case 'u':
       if (/^\d+$/.test(query)) {
-        return `https://integratingreflexes.com/wp-admin/user-edit.php?user_id=${query}`;
+        return `https://www.integratingreflexes.com/wp-admin/user-edit.php?user_id=${query}`;
       } else {
-        return `https://integratingreflexes.com/wp-admin/users.php?s=${encodeURIComponent(query)}`;
+        return `https://www.integratingreflexes.com/wp-admin/users.php?s=${encodeURIComponent(query)}`;
       }
 
     case 'ur':
       if (/^\d+$/.test(query)) {
-        return `https://integratingreflexes.com/wp-admin/users.php?user_id=${query}&page=ritp-profile-edit`;
+        return `https://www.integratingreflexes.com/wp-admin/users.php?user_id=${query}&page=ritp-profile-edit`;
       } else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(query)) {
-        return `https://integratingreflexes.com/wp-admin/users.php?s=${encodeURIComponent(query)}`;
+        return `https://www.integratingreflexes.com/wp-admin/users.php?s=${encodeURIComponent(query)}`;
       } else {
         return `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
       }
