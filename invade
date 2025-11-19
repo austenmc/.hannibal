@@ -8,6 +8,10 @@ echo -n "Creating ~/.vim ... "
 ln -s ~/.hannibal/.vim ~/.vim
 echo "done"
 
+echo -n "Installing vim plugins ..."
+vim +PluginInstall +qall
+echo "done"
+
 echo -n "Creating ~/.tmux.conf ... "
 ln -s ~/.hannibal/.tmux.conf ~/.tmux.conf
 echo "done"
