@@ -20,3 +20,31 @@ precmd_functions+=(set_win_title)
 source ~/.hannibal/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
+
+worktree() {
+  local create_branch=false
+
+  if [ "$1" = "-b" ]; then
+    create_branch=true
+    shift
+  fi
+
+  if [ -z "$1" ]; then
+    echo "Usage: worktree [-b] <branch-name>"
+    return 1
+  fi
+
+  local branch="$1"
+  local folder=$(basename "$PWD")
+  local clean_branch=$(echo "$branch" | sed 's/[\/\\:]/-/g')
+  local target="../${folder}-${clean_branch}"
+
+  git fetch
+
+  if [ "$create_branch" = true ]; then
+    git worktree add -b "$branch" "$target"
+  else
+    git worktree add "$target" "$branch"
+  fi
+  cd "$target"
+}
