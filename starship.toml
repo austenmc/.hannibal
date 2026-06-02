@@ -22,3 +22,12 @@ disabled = true
 
 [php]
 disabled = true
+
+[aws]
+disabled = true
+
+[java]
+disabled = true
+
+[gcloud]
+disabled = true

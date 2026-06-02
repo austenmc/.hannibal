@@ -2,21 +2,21 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-vinegar'
-Plugin 'preservim/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'tpope/vim-vinegar'
+"Plugin 'preservim/nerdtree'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Disable modelines just in case I encounter security issues with such files.

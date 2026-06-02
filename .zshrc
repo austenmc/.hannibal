@@ -17,7 +17,7 @@ function set_win_title(){
 }
 precmd_functions+=(set_win_title)
 
-source ~/.hannibal/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.hannibal/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 
@@ -38,6 +38,7 @@ worktree() {
   local folder=$(basename "$PWD")
   local clean_branch=$(echo "$branch" | sed 's/[\/\\:]/-/g')
   local target="../${folder}-${clean_branch}"
+  local original_dir="$PWD"
 
   git fetch
 
@@ -47,4 +48,18 @@ worktree() {
     git worktree add "$target" "$branch"
   fi
   cd "$target"
+
+  # Copy .env file from original directory if it exists
+  if [ -f "$original_dir/.env" ]; then
+    cp "$original_dir/.env" .env
+  fi
+
+  # Install dependencies if package.json exists
+  if [ -f "package.json" ]; then
+    if [ -f "yarn.lock" ]; then
+      yarn install
+    else
+      npm install
+    fi
+  fi
 }
