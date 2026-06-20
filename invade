@@ -9,7 +9,7 @@ ln -s ~/.hannibal/.vim ~/.vim
 echo "done"
 
 echo -n "Installing vim plugins ..."
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 echo "done"
 
 echo -n "Creating ~/.tmux.conf ... "
