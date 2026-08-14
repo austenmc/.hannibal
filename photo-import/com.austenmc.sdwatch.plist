@@ -1,0 +1,15 @@
+<!-- ~/Library/LaunchAgents/com.austen.sdwatch.plist -->
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.austenmc.sdwatch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/austenmc/.hannibal/photo-import/sd-watch-daemon.sh</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/tmp/sdwatch.out.log</string>
+  <key>StandardErrorPath</key><string>/tmp/sdwatch.err.log</string>
+</dict>
+</plist>
