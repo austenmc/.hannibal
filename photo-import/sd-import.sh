@@ -4,6 +4,13 @@ YEAR=$(date +%Y)
 DROPBOX_OUT="$HOME/Dropbox/$YEAR Photos"
 LOG="$HOME/Library/Logs/sd-import.log"
 
+notify() {
+  osascript -e "display notification \"$2\" with title \"$1\""
+}
+
+raw_count=0
+jpg_count=0
+
 for vol in /Volumes/*/; do
   vol_name=$(basename "$vol")
 
@@ -15,13 +22,27 @@ for vol in /Volumes/*/; do
   echo "$(date): found card at $vol" >> "$LOG"
 
   DATE_SUB=$(date +%Y-%m-%d)
+  mkdir -p "$INBOX/$DATE_SUB"
   mkdir -p "$DROPBOX_OUT/$DATE_SUB"
 
-  # RAWs -> flat into local staging inbox, so LR Auto Import (non-recursive) sees them
-  find "${vol}DCIM" -type f \( -iname "*.RAF" -o -iname "*.CR3" \) -exec cp -n {} "$INBOX/" \; >> "$LOG" 2>&1
+  # count files before copying, so we can diff after
+  before_raw=$(find "$INBOX/$DATE_SUB" -type f \( -iname "*.RAF" -o -iname "*.CR3" \) | wc -l)
+  before_jpg=$(find "$DROPBOX_OUT/$DATE_SUB" -type f \( -iname "*.JPG" -o -iname "*.JPEG" -o -iname "*.MP4" \) | wc -l)
 
-  # JPEGs -> flat into dated Dropbox folder
-  find "${vol}DCIM" -type f \( -iname "*.JPG" -o -iname "*.JPEG" -o -iname "*.MP4" \) -exec cp -n {} "$DROPBOX_OUT/$DATE_SUB/" \; >> "$LOG" 2>&1
+  find "${vol}DCIM" -type f \( -iname "*.RAF" -o -iname "*.CR3" \) -exec cp -np {} "$INBOX/$DATE_SUB/" \; >> "$LOG" 2>&1
+  find "${vol}DCIM" -type f \( -iname "*.JPG" -o -iname "*.JPEG" -o -iname "*.MP4" \) -exec cp -np {} "$DROPBOX_OUT/$DATE_SUB/" \; >> "$LOG" 2>&1
+
+  after_raw=$(find "$INBOX/$DATE_SUB" -type f \( -iname "*.RAF" -o -iname "*.CR3" \) | wc -l)
+  after_jpg=$(find "$DROPBOX_OUT/$DATE_SUB" -type f \( -iname "*.JPG" -o -iname "*.JPEG" -o -iname "*.MP4" \) | wc -l)
+
+  raw_count=$((raw_count + after_raw - before_raw))
+  jpg_count=$((jpg_count + after_jpg - before_jpg))
 
   echo "$(date): import complete for $vol" >> "$LOG"
 done
+
+if [ "$raw_count" -gt 0 ] || [ "$jpg_count" -gt 0 ]; then
+  notify "SD Import Complete" "${raw_count} new RAWs, ${jpg_count} new JPEGs/videos"
+else
+  notify "SD Import" "Card scanned, nothing new found"
+fi
