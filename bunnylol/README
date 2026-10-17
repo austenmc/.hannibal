@@ -1,6 +1,10 @@
 ```
 npm install
 mkdir -p ~/Library/LaunchAgents
-mv ./com.austenmc.bunnylol.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.austenmc.bunnylol.plist
+mv ./com.austenmc.bunnylol-ritp.plist ./com.austenmc.bunnylol-thebehavioral.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.austenmc.bunnylol-ritp.plist
+launchctl load ~/Library/LaunchAgents/com.austenmc.bunnylol-thebehavioral.plist
 ```
+
+ritp:          http://localhost:8998/bunnylol?mode=ritp&search=%s
+thebehavioral: http://localhost:8999/bunnylol?mode=thebehavioral&search=%s

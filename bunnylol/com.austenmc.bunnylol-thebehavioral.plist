@@ -3,12 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.austenmc.bunnylol</string>
+    <string>com.austenmc.bunnylol-thebehavioral</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/node</string>
         <string>/Users/austenmc/.hannibal/bunnylol/app.js</string>
     </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PORT</key>
+        <string>8999</string>
+    </dict>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
